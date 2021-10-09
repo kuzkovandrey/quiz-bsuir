@@ -1,9 +1,13 @@
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
+  declarations: [
+    ToolbarComponent
+  ],
   imports: [
     CommonModule,
     IonicModule,
@@ -12,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     CommonModule,
     IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToolbarComponent
   ],
 })
 

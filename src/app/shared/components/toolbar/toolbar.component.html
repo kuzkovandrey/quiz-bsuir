@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button
+        *ngIf="isRootRoute; else defaultRouteButton" routerLink="">
+      </ion-back-button>
+      <ng-template #defaultRouteButton>
+        <ion-back-button></ion-back-button>
+      </ng-template>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
