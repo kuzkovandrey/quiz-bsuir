@@ -9,9 +9,13 @@
 <ion-content>
   <div class="start">
     <h2 class="start__title">Enter your name</h2>
-    <ion-input class="start__input"></ion-input>
+    <ion-input
+      class="start__input"
+      [formControl]="nameInput">
+    </ion-input>
     <ion-button
-      class="start__button"
+      [disabled]="nameInput.invalid"
+      class="nav-button start__button"
       [routerLink]="['/', 'quizz', 'test']">
       Enter
     </ion-button>
