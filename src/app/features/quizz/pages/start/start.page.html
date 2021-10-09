@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="start">
+    <h2 class="start__title">Enter your name</h2>
+    <ion-input class="start__input"></ion-input>
+    <ion-button
+      class="start__button"
+      [routerLink]="['/', 'quizz', 'test']">
+      Enter
+    </ion-button>
+  </div>
+</ion-content>

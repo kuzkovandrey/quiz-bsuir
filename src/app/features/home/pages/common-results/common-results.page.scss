@@ -1,0 +1,30 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  &__table {
+    width: 90%;
+  }
+}
+
+td {
+  &:nth-child(2) {
+    width: 60%;
+  }
+}
+
+thead td {
+  font-weight: 600;
+}
+
+th, td {
+  padding: 5px;
+  text-align: center;
+}

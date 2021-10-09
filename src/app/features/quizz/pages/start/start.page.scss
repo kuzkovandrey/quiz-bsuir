@@ -1,0 +1,23 @@
+.start {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    border: 1px solid;
+    border-radius: 5px;
+    max-height: 30px;
+  }
+
+  &__button {
+    width: 60%;
+    margin-top: 20px;
+  }
+}
