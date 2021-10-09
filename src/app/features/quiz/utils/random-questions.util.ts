@@ -1,4 +1,4 @@
-import { Quesction } from '@core/models/question.model';
+import { Quesction } from '../models/question.model';
 
 export class RandomQuestions {
   public static get(quesctions: Quesction[], amount: number = 10): Quesction[] {

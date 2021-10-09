@@ -1,7 +1,7 @@
 import { QuizService } from 'src/app/features/quiz/services/quiz.service';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Quesction } from '@core/models/question.model';
+import { Quesction } from './models/question.model';
 
 @Component({
   selector: 'quiz',

@@ -9,9 +9,11 @@
 <ion-content class="results">
     <h1 class="results__title">Results</h1>
     <ion-list>
-      <ion-item class="user">
-        <ion-label class="user__name">Andrey</ion-label>
-        <ion-note class="user__points" slot="end">On</ion-note>
+      <ion-item
+        class="user"
+        *ngFor="let result of results">
+        <ion-label class="user__name">{{ result.user }}</ion-label>
+        <ion-note class="user__points" slot="end">{{ result.points }}</ion-note>
       </ion-item>
     </ion-list>
 </ion-content>

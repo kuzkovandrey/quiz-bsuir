@@ -1,7 +1,7 @@
-import { RandomQuestions } from '../../../core/utils/random-questions.util';
-import { Quesction } from '../../../core/models/question.model';
+import { RandomQuestions } from '../utils/random-questions.util';
+import { Quesction } from '../models/question.model';
 import { Injectable } from '@angular/core';
-import { QUIZ_QUESTIONS } from '@core/questions/quiz-questions';
+import { QUIZ_QUESTIONS } from 'src/app/features/quiz/data/quiz-questions';
 
 @Injectable()
 export class QuizService {

@@ -4,7 +4,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { QuestionOption } from '@core/models/question-option.model';
+import { QuestionOption } from '@features/quiz/models/question-option.model';
 
 @Component({
   selector: 'question',
