@@ -1,0 +1,26 @@
+<div class="question">
+  <ion-card class="card">
+    <ion-card-content class="card__description">
+      {{ text }}
+    </ion-card-content>
+  </ion-card>
+
+  <div class="buttons">
+    <ion-list>
+      <ion-radio-group>
+        <ion-item *ngFor="let option of options">
+          <ion-label
+            [class.radio-button--correct]="disabledButton && option.correct"
+            [class.radio-button--incorrect]="disabledButton && !option.correct">
+            {{ option.text }}
+          </ion-label>
+          <ion-radio
+            slot="start"
+            [disabled]="disabledButton"
+            (click)="onChooseAnswer(option.correct)">
+          </ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+</div>

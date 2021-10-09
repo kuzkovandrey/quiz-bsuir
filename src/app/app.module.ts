@@ -1,4 +1,9 @@
-import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { CommonResultsComponent } from './features/common-results/common-results.component';
+import { StartComponent } from './features/start/start.component';
+import { UserResultComponent } from './features/user-result/user-result.component';
+import { QuizComponent } from './features/quiz/quiz.component';
+import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from './features/home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,13 +15,17 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UserResultComponent,
+    StartComponent,
+    CommonResultsComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [
     {

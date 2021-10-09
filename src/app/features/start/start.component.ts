@@ -9,5 +9,4 @@ import { FormControl, Validators } from '@angular/forms';
 
 export class StartComponent {
   nameInput = new FormControl('', Validators.required);
-
 }

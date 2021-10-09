@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button routerLink=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-progress-bar value="0.5"></ion-progress-bar>
+
+  <ion-slides>
+    <ion-slide *ngFor="let question of questions$ | async">
+      <question
+        (chooseAnswer)="onChooseAnswer($event)"
+        [text]="question.question"
+        [options]="question.options">
+      </question>
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+
+
+  <div class="button-wrapper">
+    <ion-button
+      color="success"
+      class="help-button">
+      50/50 (3)
+    </ion-button>
+  </div>
+</ion-content>

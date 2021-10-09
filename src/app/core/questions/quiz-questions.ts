@@ -1,6 +1,6 @@
-import { Quesction } from './models/question.model';
+import { Quesction } from '../models/question.model';
 
-export const QUIZ_DATA: Quesction[] = [
+export const QUIZ_QUESTIONS: Quesction[] = [
   {
     question: 'Which of the following does TypeScript use to specify types?',
     options: [
@@ -214,7 +214,7 @@ export const QUIZ_DATA: Quesction[] = [
       { text: 'on-click', correct: true },
     ],
     explanation:
-      "(click) and its HTML equivalent 'on-click' are examples of event bindings",
+      '(click) and its HTML equivalent "on-click" are examples of event bindings',
   },
   {
     question:
@@ -226,7 +226,7 @@ export const QUIZ_DATA: Quesction[] = [
       { text: '(keydown.control.enter)', correct: true },
     ],
     explanation:
-      "(keydown.control.enter) is Angular's syntax for handling keyboard shortcuts",
+      '(keydown.control.enter) is Angular\'s syntax for handling keyboard shortcuts',
   },
   {
     question: 'Which directive adds or removes an element from the DOM?',
