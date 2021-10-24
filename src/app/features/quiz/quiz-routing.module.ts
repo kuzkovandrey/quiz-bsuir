@@ -1,12 +1,12 @@
+import { AppRoutes } from '@core/enums/app-router.enum';
 import { QuizComponent } from './quiz.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: AppRoutes.ROOT,
     component: QuizComponent,
-    pathMatch: 'full'
   },
 ];
 

@@ -1,4 +1,6 @@
+import { AppRoutes } from '@core/enums/app-router.enum';
 import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'home',
@@ -6,4 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  appRoutes = AppRoutes;
 }

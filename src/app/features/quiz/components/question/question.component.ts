@@ -16,11 +16,11 @@ export class QuestionComponent {
   @Input() text: string;
   @Input() options: QuestionOption[];
   @Output() chooseAnswer = new EventEmitter<boolean>();
-
   disabledButton = false;
 
   onChooseAnswer(correct: boolean) {
     this.chooseAnswer.emit(correct);
     this.disabledButton = true;
   }
+
 }

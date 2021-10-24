@@ -14,9 +14,9 @@
       [formControl]="nameInput">
     </ion-input>
     <ion-button
+      (click)="navigateToQuiz()"
       [disabled]="nameInput.invalid"
-      class="nav-button start__button"
-      [routerLink]="['/', 'quiz']">
+      class="nav-button start__button">
       Enter
     </ion-button>
   </div>

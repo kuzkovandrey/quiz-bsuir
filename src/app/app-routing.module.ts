@@ -1,6 +1,6 @@
+import { AppRoutes } from './core/enums/app-router.enum';
 import { StartComponent } from './features/start/start.component';
 import { UserResultComponent } from './features/user-result/user-result.component';
-import { QuizComponent } from './features/quiz/quiz.component';
 import { CommonResultsComponent } from './features/common-results/common-results.component';
 import { HomeComponent } from './features/home/home.component';
 import { NgModule } from '@angular/core';
@@ -8,24 +8,29 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
+    path: AppRoutes.ROOT,
+    redirectTo: AppRoutes.HOME,
     pathMatch: 'full'
   },
   {
-    path: 'common-results',
+    path: AppRoutes.HOME,
+    component: HomeComponent,
+  },
+  {
+    path: AppRoutes.COMMON_RES,
     component: CommonResultsComponent
   },
   {
-    path: 'start',
+    path: AppRoutes.START,
     component: StartComponent
   },
   {
-    path: 'quiz',
-    loadChildren: () => import('./features/quiz/quiz.module').then(m => m.QuizModule)
+    path: AppRoutes.QUIZ,
+    loadChildren: () =>
+      import('./features/quiz/quiz.module').then(m => m.QuizModule)
   },
   {
-    path: 'user-result',
+    path: AppRoutes.USER_RESULT,
     component: UserResultComponent
   }
 ];

@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button routerLink=""></ion-back-button>
-    </ion-buttons>
+      <ion-button
+        class="back-button"
+        color="danger"
+        (click)="exitFromQuiz()">
+        Exit
+      </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-progress-bar value="0.5"></ion-progress-bar>
-
+  <ion-progress-bar [value]="time"></ion-progress-bar>
   <ion-slides>
     <ion-slide *ngFor="let question of questions$ | async">
       <question
@@ -17,12 +19,13 @@
       </question>
     </ion-slide>
   </ion-slides>
-
   <div class="button-wrapper">
     <ion-button
+      [disabled]="!helpCounter"
+      (click)="getCorrectQuestion()"
       color="success"
       class="help-button">
-      50/50 (3)
+      help ({{ helpCounter }})
     </ion-button>
   </div>
 </ion-content>

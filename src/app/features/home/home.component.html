@@ -4,13 +4,13 @@
     <p class="home__description">Click play to start quiz</p>
     <ion-button
       class="nav-button"
-      [routerLink]="['start']">
+      [routerLink]="[appRoutes.ROOT, appRoutes.START]">
       Play
     </ion-button>
     <ion-button
       class="nav-button"
       color="medium"
-      [routerLink]="['common-results']">
+      [routerLink]="[appRoutes.ROOT, appRoutes.COMMON_RES]">
       Results
     </ion-button>
   </div>
