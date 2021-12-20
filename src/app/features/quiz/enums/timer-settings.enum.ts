@@ -1,4 +1,4 @@
 export enum TimerSettings {
-  TIME = 120,
-  INTERVAL = 100
+  TIME = 15,
+  INTERVAL = 1000
 }

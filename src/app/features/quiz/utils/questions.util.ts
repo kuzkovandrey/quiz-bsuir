@@ -7,6 +7,7 @@ export class Questions {
       .slice(0, amount);
   }
 
+  //TODO: REFACTORING
   public static filter(quesction: Quesction) {
     let correct = 1;
     let wrong = 1;

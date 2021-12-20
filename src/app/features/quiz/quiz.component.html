@@ -9,8 +9,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-progress-bar [value]="time"></ion-progress-bar>
-  <ion-slides>
+  <ion-chip  class="timer">
+    <ion-label color="danger">{{time}}</ion-label>
+  </ion-chip>
+  <ion-title></ion-title>
+  <ion-slides (ionSlideDidChange)="onChangeSlide()">
     <ion-slide *ngFor="let question of questions$ | async">
       <question
         (chooseAnswer)="onChooseAnswer($event)"

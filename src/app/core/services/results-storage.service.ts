@@ -19,11 +19,9 @@ export class ResultsStorageService {
 
   getResults(): Results[] {
     const results: Results[] = [];
-
     this.storage?.forEach((user, points) => {
       results.push({user, points});
     });
-
     return results;
   }
 }

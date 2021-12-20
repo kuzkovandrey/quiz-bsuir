@@ -211,7 +211,7 @@ export const QUIZ_QUESTIONS: Quesction[] = [
       { text: '[click]' },
       { text: '@click' },
       { text: '(click)', correct: true },
-      { text: 'on-click', correct: true },
+      { text: 'ng-click' },
     ],
     explanation:
       '(click) and its HTML equivalent "on-click" are examples of event bindings',

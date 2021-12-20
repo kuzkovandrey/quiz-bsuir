@@ -1,11 +1,10 @@
 import { AppRoutes } from '@core/enums/app-router.enum';
 import { CurrentUserService } from '@core/services/current-user.service';
 import { Questions } from './utils/questions.util';
-import { TimerSettings } from './enums/timer-settings.enum';
 import { QuizService } from 'src/app/features/quiz/services/quiz.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, from, Subject } from 'rxjs';
-import { first, takeUntil } from 'rxjs/operators';
+import { first, takeUntil, tap } from 'rxjs/operators';
 import { Quesction } from './models/question.model';
 import { IonSlides } from '@ionic/angular';
 import { TimerService } from './services/timer.service';
@@ -21,10 +20,11 @@ import { Router } from '@angular/router';
 export class QuizComponent implements OnInit, OnDestroy {
   @ViewChild(IonSlides, {static: true}) slides: IonSlides;
   questions$ = new BehaviorSubject<Quesction[]>(null);
-  time: number;
+  time = 15;
   helpCounter = 3;
   private correctCounter = 0;
   private destroy = new Subject();
+  private endTimer = new Subject();
 
   constructor(
     private quizService: QuizService,
@@ -34,21 +34,20 @@ export class QuizComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.questions$.next( this.quizService.getQuesctions() );
     this.slides.lockSwipeToPrev(true);
-
-    this.timer.getTimer()
-      .pipe(takeUntil(this.destroy))
-      .subscribe(time => {
-        this.time = 100 / TimerSettings.TIME * time / 1000;
-        if (this.time > 1) {
-          this.endQuiz();
-        }
-      });
+    this.questions$.next(
+      this.quizService.getQuesctions()
+    );
+    this.timerSubscription();
   }
 
   ngOnDestroy() {
     this.destroy.next();
+  }
+
+  onChangeSlide() {
+    this.endTimer.next();
+    this.timerSubscription();
   }
 
   onChooseAnswer(correct: boolean) {
@@ -68,6 +67,7 @@ export class QuizComponent implements OnInit, OnDestroy {
     from(this.slides.getActiveIndex())
       .pipe(first())
       .subscribe(index => {
+        //TODO: REFACTORING
         let currentQuestion =  this.questions$.value[index];
         currentQuestion = Questions.filter(currentQuestion);
         this.helpCounter--;
@@ -78,15 +78,38 @@ export class QuizComponent implements OnInit, OnDestroy {
     this.router.navigate([AppRoutes.ROOT]);
     this.currentUser.resetUser();
     this.destroy.next();
+    this.endTimer.next();
   }
 
   private endQuiz() {
     this.currentUser.results.next(this.correctCounter);
     this.destroy.next();
+    this.endTimer.next();
     this.navigateToResult();
   }
 
   private navigateToResult() {
     this.router.navigate([AppRoutes.USER_RESULT]);
+  }
+
+  //TODO: REFACTORING
+  private timerSubscription() {
+    this.time = 15;
+    this.timer.getTimer().pipe(
+      tap(item => {
+        console.log(item);
+        if (item === 15) {
+          this.slides.slideNext();
+          this.slides.isEnd().then(isEnd => {
+            if (isEnd) {
+              this.endQuiz();
+            } else {
+              this.slides.slideNext();
+            }
+          });
+        }
+      }),
+      takeUntil(this.endTimer)
+    ).subscribe(time => this.time = 15 - time);
   }
 }
